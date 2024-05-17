@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { flexRender, useReactTable, getCoreRowModel } from '@tanstack/react-table';
 import { columnDef } from './columns';
 import dataJSON from '../data.json';
 
 const BasicTable = () => {
 
-    const finalData = React.useMemo(() => dataJSON,[]);
-    const finalColumnDef = React.useMemo(() => columnDef,[]);
+    const finalData = useMemo(() => dataJSON,[]);
+    const finalColumnDef = useMemo(() => columnDef,[]);
 
     const tableInstance = useReactTable({
         columns: finalColumnDef,
@@ -38,7 +38,6 @@ const BasicTable = () => {
             </thead>
             <tbody>
                 {tableInstance.getCoreRowModel().rows.map((rowEl) => {
-                    console.log('rowEl', rowEl);
                     return (
                         <tr key={rowEl.id}>
                             {rowEl.getVisibleCells().map((cellEl) => {

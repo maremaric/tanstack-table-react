@@ -20,8 +20,6 @@ const BasicTable = () => {
       onSortingChange: setSorting,
     });
   
-    //   console.log("test", tableInstance.getHeaderGroups());
-  
     return (
       <>
         <table>
